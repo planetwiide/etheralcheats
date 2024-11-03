@@ -1,13 +1,16 @@
+<div align="center">
+  <img src="https://github.com/user-attachments/assets/9858ab4d-e065-4857-bacc-6afcea51bebb">
+</div>
 # 🌺 ꒰ Etheral ꒱ 🌺
 
 Etheral is a sleek, user-centered web panel that displays user information, application management options, and various account functions. Styled with a neon-inspired, customizable dark theme, Etheral combines Vue.js for interactivity and Tailwind CSS for a polished and responsive design.
 
-![⭐](https://img.shields.io/github/stars/yourusername/etheral?style=social)
-![🍴](https://img.shields.io/github/forks/yourusername/etheral?style=social)
-![🐞](https://img.shields.io/github/issues/yourusername/etheral)
-![⚡](https://img.shields.io/github/commit-activity/m/yourusername/etheral)
-![🆙](https://img.shields.io/github/last-commit/yourusername/etheral)
-![📚](https://img.shields.io/github/license/yourusername/etheral)
+![⭐](https://img.shields.io/github/stars/planetwiide/etheralcheats?style=social)
+![🍴](https://img.shields.io/github/forks/planetwiide/etheralcheats?style=social)
+![🐞](https://img.shields.io/github/issues/planetwiide/etheralcheats)
+![⚡](https://img.shields.io/github/commit-activity/m/planetwiide/etheralcheats)
+![🆙](https://img.shields.io/github/last-commit/planetwiide/etheralcheats)
+![📚](https://img.shields.io/github/license/planetwiide/etheralcheats)
 
 ## 🌌 About Etheral
 

@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://registry.npmmirror.com/vue/3.3.11/files/dist/vue.global.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"></link>
+  <link rel="icon" href="etheral.ico" type="image/x-icon">
+  <title>🌺 ꒰ etheral ꒱ 🌺</title>
+  <style>
+    body {
+      font-family: monospace;
+      transition: background-color 0.3s, color 0.3s;
+      background-color: #111111;
+      margin: 0;
+      overflow-x: hidden;
+    }
+    .bg {
+      position: fixed;
+      top: -50%;
+      left: -50%;
+      right: -50%;
+      bottom: -50%;
+      width: 200%;
+      height: 200vh;
+      background: transparent url('http://assets.iceable.com/img/noise-transparent.png') repeat 0 0;
+      background-repeat: repeat;
+      animation: bg-animation .6s infinite;
+      opacity: 5;
+      visibility: visible;
+    }
+
+    @keyframes bg-animation {
+        0% { transform: translate(0,0) }
+        10% { transform: translate(-5%,-5%) }
+        20% { transform: translate(-10%,5%) }
+        30% { transform: translate(5%,-10%) }
+        40% { transform: translate(-5%,15%) }
+        50% { transform: translate(-10%,5%) }
+        60% { transform: translate(15%,0) }
+        70% { transform: translate(0,10%) }
+        80% { transform: translate(-15%,0) }
+        90% { transform: translate(10%,5%) }
+        100% { transform: translate(5%,0) }
+}
+
+    .green-text {
+      color: #00ff00;
+    }
+    .yellow-text {
+      color: #ffff00;
+    }
+    .white-text {
+      color: #ffffff;
+    }
+    .pink-border {
+      border: 1px solid #ff00ff;
+    }
+    .pink-text {
+      color: #ff00ff;
+      transition: color 0.3s;
+    }
+    .pink-text:hover {
+      color: #ff7bff;
+      text-shadow:0px 0px 5px rgba(199, 143, 255, 0.8);
+      transition: 0.3s;
+    }
+    .clickable {
+      cursor: pointer;
+    }
+
+    .glow-on-hover {
+      width: 220px;
+      height: 50px;
+      border: none;
+      outline: none;
+      color: #fff;
+      background: #111;
+      cursor: pointer;
+      position: relative;
+      z-index: 0;
+      border-radius: 10px;
+    }
+    .glow-on-hover:before {
+      content: '';
+      background: linear-gradient(45deg, #ff00ff, #ff66ff, #ff00ff, #ff66ff);
+      position: absolute;
+      top: -2px;
+      left: -2px;
+      background-size: 400%;
+      z-index: -1;
+      filter: blur(5px);
+      width: calc(100% + 4px);
+      height: calc(100% + 4px);
+      animation: glowing 20s linear infinite;
+      border-radius: 10px;
+    }
+    @keyframes glowing {
+      0% { background-position: 0 0; }
+      50% { background-position: 400% 0; }
+      100% { background-position: 0 0; }
+    }
+    .glow-on-hover:after {
+      z-index: -1;
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: #111;
+      left: 0;
+      top: 0;
+      border-radius: 10px;
+    }
+    .background-effect {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: -1;
+    }
+    .background-effect canvas {
+      width: 100%;
+      height: 100%;
+    }
+    .notification {
+      background-color: rgba(0, 0, 0, 0.8);
+      color: white;
+      padding: 10px;
+      border: 1px solid #ff00ff;
+      margin: 5px;
+      transition: opacity 0.3s, transform 0.3s;
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    .notification.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+  <div class="bg"></div>
+  <div id="app" class="flex flex-col items-center justify-center min-h-screen relative fade-in">
+    
+    <div class="text-center mb-8">
+      <p>etheral - panel</p>
+    </div>
+    <div class="pink-border p-4 mb-8">
+      <div class="text-center mb-4">
+        <p class="white-text">user info</p>
+      </div>
+      <div class="text-center mb-4">
+        <p>welcome, <span class="text-green-500">nildontsleep</span> (uid: 1)</p>
+        <p>your inviter : <span class="text-green-500">console</span></p>
+      </div>
+      <div class="grid grid-cols-2 gap-4 mb-4">
+        <div class="text-center">
+          <p class="white-text">sub</p>
+          <p class="green-text">lifetime</p>
+          <p><a href="#" class="pink-text clickable">extend</a></p>
+        </div>
+        <div class="text-center">
+          <p class="white-text">discord</p>
+          <p><a href="#" class="pink-text clickable">link account</a></p>
+        </div>
+        <div class="text-center">
+          <p class="white-text">client</p>
+          <p><a href="#" class="pink-text clickable">download loader</a></p>
+        </div>
+        <div class="text-center">
+          <p class="white-text">information</p>
+          <p><a href="#" class="pink-text clickable">frequently asked questions</a></p>
+          <p><a href="#" class="pink-text clickable">terms of service</a></p>
+        </div>
+      </div>
+      <div class="text-center">
+        <p class="white-text">management</p>
+        <p><a href="#" class="pink-text clickable">show my invites</a></p>
+        <p><a href="#" class="pink-text clickable">admin panel</a></p>
+      </div>
+    </div>
+    <div class="text-center mb-8">
+      <p><a href="#" class="pink-text clickable">log out</a></p>
+    </div>
+    <div class="pink-border p-4 absolute bottom-0 left-0 mb-4 ml-4">
+      <div class="text-center">
+        <p class="white-text">stats</p>
+        <p class="pink-text">registered users: 1</p>
+        <p class="pink-text">newest user: <span class="green-text">nildontsleep</span></p>
+      </div>
+    </div>
+    <div class="pink-border p-4 absolute bottom-0 right-0 mb-4 mr-4">
+      <div class="text-center">
+        <p class="white-text">credits</p>
+        <a href="https://github.com/planetwiide" class="pink-text">nildontsleep</a>
+      </div>
+    </div>
+    <div class="absolute top-0 right-0 mt-4 mr-4">
+      <select v-model="theme" @change="changeTheme" class="bg-black text-white border border-pink-500 p-2 rounded">
+        <option value="original">Original</option>
+        <option value="dracula">Dracula</option>
+        <option value="monokai">Monokai</option>
+        <option value="solarized-dark">Solarized Dark</option>
+        <option value="nord">Nord</option>
+        <option value="gruvbox-dark">Gruvbox Dark</option>
+      </select>
+    </div>
+    <div class="background-effect">
+      <canvas id="backgroundCanvas"></canvas>
+    </div>
+    <div class="absolute top-0 left-0 mt-4 ml-4">
+      <div v-for="notification in notifications" :key="notification.id" :class="['notification', notification.show ? 'show' : '']">
+        {{ notification.message }}
+      </div>
+    </div>
+  </div>
+  
+  <script>
+    const { createApp, ref } = Vue;
+    createApp({
+      setup() {
+        const theme = ref('original');
+        const notifications = ref([]);
+
+        const themes = {
+          original: {
+            backgroundColor: 'black',
+            color: '#ff00ff',
+            linkColor: '#ff00ff',
+            borderColor: '#ff00ff'
+          },
+          dracula: {
+            backgroundColor: '#282a36',
+            color: '#f8f8f2',
+            linkColor: '#ff79c6',
+            borderColor: '#ff79c6'
+          },
+          monokai: {
+            backgroundColor: '#272822',
+            color: '#f8f8f2',
+            linkColor: '#f92672',
+            borderColor: '#f92672'
+          },
+          'solarized-dark': {
+            backgroundColor: '#002b36',
+            color: '#839496',
+            linkColor: '#268bd2',
+            borderColor: '#268bd2'
+          },
+          nord: {
+            backgroundColor: '#2e3440',
+            color: '#d8dee9',
+            linkColor: '#88c0d0',
+            borderColor: '#88c0d0'
+          },
+          'gruvbox-dark': {
+            backgroundColor: '#282828',
+            color: '#ebdbb2',
+            linkColor: '#fb4934',
+            borderColor: '#fb4934'
+          }
+        };
+
+        const changeTheme = () => {
+          const selectedTheme = themes[theme.value];
+          document.body.style.backgroundColor = selectedTheme.backgroundColor;
+          document.body.style.color = selectedTheme.color;
+          document.querySelectorAll('.pink-text').forEach(el => {
+            el.style.color = selectedTheme.linkColor;
+          });
+          document.querySelectorAll('.pink-border').forEach(el => {
+            el.style.borderColor = selectedTheme.borderColor;
+          });
+          addNotification(`Theme changed to ${theme.value}`, 'bottom-left');
+        };
+        
+        const addNotification = (message, position = 'top-left') => {
+          const id = Date.now();
+          notifications.value.push({ id, message, position, show: false });
+          setTimeout(() => {
+            notifications.value = notifications.value.map(notification => {
+              if (notification.id === id) {
+                notification.show = true;
+              }
+              return notification;
+            });
+          }, 100);
+          setTimeout(() => {
+            notifications.value = notifications.value.filter(notification => notification.id !== id);
+          }, 3100);
+        };
+        changeTheme();
+        addNotification('Successfully logged in as nildontsleep');
+
+        return {
+          theme,
+          changeTheme,
+          notifications,
+          addNotification
+        };
+      }
+    }).mount('#app');
+
+    // Background effect
+    const canvas = document.getElementById('backgroundCanvas');
+    const ctx = canvas.getContext('2d');
+    let width, height, particles;
+
+    function init() {
+      width = canvas.width = window.innerWidth;
+      height = canvas.height = window.innerHeight;
+      particles = [];
+
+      for (let i = 0; i < 100; i++) {
+        particles.push(new Particle());
+      }
+    }
+
+    function Particle() {
+      this.x = Math.random() * width;
+      this.y = Math.random() * height;
+      this.vx = (Math.random() - 0.5) * 2;
+      this.vy = (Math.random() - 0.5) * 2;
+      this.size = Math.random() * 2 + 1;
+    }
+
+    Particle.prototype.update = function() {
+      this.x += this.vx;
+      this.y += this.vy;
+
+      if (this.x < 0 || this.x > width) this.vx *= -1;
+      if (this.y < 0 || this.y > height) this.vy *= -1;
+    };
+
+    Particle.prototype.draw = function() {
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+      ctx.fillStyle = '#ff00ff';
+      ctx.fill();
+    };
+
+    function drawLines() {
+      for (let i = 0; i < particles.length; i++) {
+        for (let j = i + 1; j < particles.length; j++) {
+          const dx = particles[i].x - particles[j].x;
+          const dy = particles[i].y - particles[j].y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < 150) {
+            ctx.beginPath();
+            ctx.moveTo(particles[i].x, particles[i].y);
+            ctx.lineTo(particles[j].x, particles[j].y);
+            ctx.strokeStyle = 'rgba(255, 0, 255, 0.2)';
+            ctx.stroke();
+          }
+        }
+      }
+    }
+
+    function animate() {
+      ctx.clearRect(0, 0, width, height);
+      particles.forEach(particle => {
+        particle.update();
+        particle.draw();
+      });
+      drawLines();
+      requestAnimationFrame(animate);
+    }
+
+    canvas.addEventListener('mousemove', (e) => {
+      particles.forEach(particle => {
+        const dx = particle.x - e.clientX;
+        const dy = particle.y - e.clientY;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        if (dist < 100) {
+          particle.vx += dx / 100;
+          particle.vy += dy / 100;
+        }
+      });
+    });
+
+    window.addEventListener('resize', init);
+
+    init();
+    animate();
+  </script>
+</body>
+</html>

@@ -1,6 +1,7 @@
 <div align="center">
   <img src="https://github.com/user-attachments/assets/9858ab4d-e065-4857-bacc-6afcea51bebb">
 </div>
+
 # 🌺 ꒰ Etheral ꒱ 🌺
 
 Etheral is a sleek, user-centered web panel that displays user information, application management options, and various account functions. Styled with a neon-inspired, customizable dark theme, Etheral combines Vue.js for interactivity and Tailwind CSS for a polished and responsive design.
